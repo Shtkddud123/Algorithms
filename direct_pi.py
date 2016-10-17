@@ -9,12 +9,14 @@ class SM_alg():
         self.N = N
         self.Nhits = 0
     def direct_sampling(self):
-        for i in range(0,self.N):
-            print i 
-            x = random.uniform(-1.0,1.0)
-            y = random.uniform(-1.0,1.0)
-            if ((x**2) + (y**2)) < 1:
-                self.Nhits = self.Nhits + 1   
-                       
 
+        x = np.random.uniform(-1, 1, self.N)
+        y = np.random.uniform(-1, 1, self.N)
 
+        for i,j in np.nditer([x,y]):
+            if (i*i) + (j*j) < 1:
+                self.Nhits = self.Nhits + 1
+                
+a = SM_alg(4000)
+a.direct_sampling()
+print a.Nhits 
