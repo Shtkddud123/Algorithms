@@ -1,0 +1,5 @@
+from visual import *
+# Sphere visualization
+sphere(pos = vector(-1,-1,10), radius = 0.1, color = color.green)
+
+arrow(pos=vector(-1,-1,10), axiscolor = color.blue)
