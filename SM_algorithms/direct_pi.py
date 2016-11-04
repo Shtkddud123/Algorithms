@@ -39,8 +39,5 @@ class SM_alg():
 
                     
 
-class buffon_needle():
-    """ Calculation of pi through the Buffon's needle method"""
-        def __init__(self,):
 
     
