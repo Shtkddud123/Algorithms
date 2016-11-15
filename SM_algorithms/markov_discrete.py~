@@ -1,0 +1,28 @@
+import numpy as np
+import random
+
+class markov_discrete():
+    """
+    Calculate the markov discrete pebble mechanism
+    """
+
+    def __init__(self,k,size):
+        self.k = k
+        self.size = size
+
+    def transfer_matrix(self):
+       
+        probability = np.array([[0.5,0.25,0,0.25,0,0,0,0,0] , [0.25,0.25,0.25,0,0.25,0,0,0,0], [0,0.25,0.5,0,0,0.25,0,0,0], [0.25,0,0,0.25,0.25,0,0.25,0,0], [0,0.25,0,0.25,0,0.25,0,0.25,0], [0,0,0.25,0,0.25,0.25,0,0,0.25], [0,0,0,0.25,0,0,0.5,0.25,0], [0,0,0,0,0.25,0,0.25,0.25,0.25], [0,0,0,0,0,0.25,0,0.25,0.5]])
+        startingvec = np.array([[0,0,0,0,0,0,0,0,1]])
+        newvec = np.array([[0,0,0,0,0,0,0,0,0]])
+        for i in np.nditer(newvec):
+            newvec[i] = newvec[i] + np.dot(startingvec,probability)
+
+        return newvec 
+        
+        #array = np.array([[1,2,4,0,0],[2,3,5,1,0],[3,0,6,2,0],[4,5,7,0,1],[5,6,8,4,2],[6,0,9,5,3],[7,8,0,0,4],[8,9,0,7,5],[9,0,0,8,6]])
+
+        #intgen = np.random.randint(1,4,size=self.size)
+
+a = markov_discrete(3,3)
+print a.transfer_matrix()
